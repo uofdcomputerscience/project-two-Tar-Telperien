@@ -96,9 +96,8 @@
                         <outlet property="erLabelAtta" destination="saq-g5-9Dx" id="LOK-UQ-5bb"/>
                         <outlet property="erLabelEr" destination="sS5-n4-qHV" id="eZM-E8-NHV"/>
                         <outlet property="erSeg" destination="Wag-Ow-WRY" id="yDl-3x-YJ5"/>
-                        <outlet property="erSwitchAtta" destination="q8Y-g6-64G" id="vGh-iN-2Cu"/>
+                        <outlet property="erSwitchAtta" destination="q8Y-g6-64G" id="RGe-uj-6nD"/>
                         <outlet property="erSwitchEr" destination="wAt-Ed-JSz" id="vT3-Zh-qPe"/>
-                        <outlet property="erSwitchTwo" destination="q8Y-g6-64G" id="hs1-Vs-3lJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,27 +107,27 @@
         <!--Atta (Two)-->
         <scene sceneID="KGd-ke-QAR">
             <objects>
-                <viewController title="Atta (Two)" id="U34-BC-ARP" sceneMemberID="viewController">
+                <viewController title="Atta (Two)" id="U34-BC-ARP" customClass="ViewControllerAtta" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b3t-sh-5xE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-68-379">
-                                <rect key="frame" x="90" y="168" width="234" height="294"/>
+                                <rect key="frame" x="10" y="168" width="394" height="294"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set all values to 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW7-F8-dCt">
-                                        <rect key="frame" x="50" y="0.0" width="134.5" height="20.5"/>
+                                        <rect key="frame" x="130" y="0.0" width="134.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="38C-fX-YdP">
-                                        <rect key="frame" x="14.5" y="110.5" width="205" height="32"/>
+                                        <rect key="frame" x="94.5" y="110.5" width="205" height="32"/>
                                         <subviews>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rcS-64-rlQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperStepped:" destination="AqO-Db-OfR" eventType="valueChanged" id="MC5-NK-btD"/>
+                                                    <action selector="attaStepperStepped:" destination="U34-BC-ARP" eventType="valueChanged" id="NXI-vO-sTk"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnn-xJ-n8D">
@@ -140,7 +139,10 @@
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4WC-XT-SS0">
-                                        <rect key="frame" x="24" y="232.5" width="186" height="62.5"/>
+                                        <rect key="frame" x="-2" y="232.5" width="398" height="62.5"/>
+                                        <connections>
+                                            <action selector="attaSliderSlid:" destination="U34-BC-ARP" eventType="valueChanged" id="aTr-Db-PTg"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                             </stackView>
@@ -151,13 +153,22 @@
                                     <segue destination="xcx-J3-peF" kind="show" id="Jgg-Md-3R1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGu-8x-kyN">
+                                <rect key="frame" x="186" y="490" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cxc-7R-7An" firstAttribute="bottom" secondItem="TTG-J3-reW" secondAttribute="bottom" constant="100" id="4T5-Xk-eH5"/>
-                            <constraint firstItem="OMT-68-379" firstAttribute="leading" secondItem="cxc-7R-7An" secondAttribute="leading" constant="90" id="ApX-bl-Ipi"/>
+                            <constraint firstItem="OMT-68-379" firstAttribute="leading" secondItem="cxc-7R-7An" secondAttribute="leading" constant="10" id="ApX-bl-Ipi"/>
+                            <constraint firstItem="4WC-XT-SS0" firstAttribute="leading" secondItem="cxc-7R-7An" secondAttribute="leading" constant="10" id="IKW-Ae-tlg"/>
                             <constraint firstItem="OMT-68-379" firstAttribute="top" secondItem="cxc-7R-7An" secondAttribute="top" constant="80" id="Jr0-k0-cZg"/>
-                            <constraint firstItem="cxc-7R-7An" firstAttribute="trailing" secondItem="OMT-68-379" secondAttribute="trailing" constant="90" id="S0U-zZ-FpY"/>
+                            <constraint firstItem="cxc-7R-7An" firstAttribute="trailing" secondItem="4WC-XT-SS0" secondAttribute="trailing" constant="10" id="PhB-45-PVc"/>
+                            <constraint firstItem="cxc-7R-7An" firstAttribute="trailing" secondItem="OMT-68-379" secondAttribute="trailing" constant="10" id="S0U-zZ-FpY"/>
                             <constraint firstItem="TTG-J3-reW" firstAttribute="leading" secondItem="cxc-7R-7An" secondAttribute="leading" constant="176" id="WsD-jI-jvd"/>
                             <constraint firstItem="cxc-7R-7An" firstAttribute="bottom" secondItem="OMT-68-379" secondAttribute="bottom" constant="400" id="XXS-1b-cEB"/>
                             <constraint firstItem="cxc-7R-7An" firstAttribute="trailing" secondItem="TTG-J3-reW" secondAttribute="trailing" constant="176" id="y0f-iG-i1h"/>
@@ -165,16 +176,22 @@
                         <viewLayoutGuide key="safeArea" id="cxc-7R-7An"/>
                     </view>
                     <navigationItem key="navigationItem" id="2nH-3F-Nvv"/>
+                    <connections>
+                        <outlet property="attaContinueButton" destination="TTG-J3-reW" id="rBo-EQ-GqO"/>
+                        <outlet property="attaLabelAtta" destination="sGu-8x-kyN" id="Zcq-Vh-Dyn"/>
+                        <outlet property="attaLabelEr" destination="vnn-xJ-n8D" id="UCT-8a-wNj"/>
+                        <outlet property="attaSlider" destination="4WC-XT-SS0" id="wjB-4A-0UF"/>
+                        <outlet property="attaStepper" destination="rcS-64-rlQ" id="eB2-9u-VZb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vS6-lw-62P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="AqO-Db-OfR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1805.7971014492755" y="128.57142857142856"/>
         </scene>
         <!--Neldë (Three)-->
         <scene sceneID="eaE-XI-Hit">
             <objects>
-                <viewController title="Neldë (Three)" id="xcx-J3-peF" sceneMemberID="viewController">
+                <viewController title="Neldë (Three)" id="xcx-J3-peF" customClass="ViewControllerNelde" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ve-bB-9Lf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,6 +213,9 @@
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ng1-ov-szP">
                                 <rect key="frame" x="0.0" y="403" width="414" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="neldePickerSpun:" destination="xcx-J3-peF" eventType="valueChanged" id="FCh-Pg-yKF"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SE-dD-xhM">
                                 <rect key="frame" x="176" y="732" width="62" height="30"/>
@@ -218,6 +238,11 @@
                         <viewLayoutGuide key="safeArea" id="7Wi-1R-cnw"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ref-yR-d54"/>
+                    <connections>
+                        <outlet property="neldeContinueButton" destination="9SE-dD-xhM" id="ZQC-iE-YxK"/>
+                        <outlet property="neldePicker" destination="ng1-ov-szP" id="y54-5C-tDL"/>
+                        <outlet property="neldeSpinner" destination="Btd-N3-5BI" id="Fko-iS-Gkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKZ-NP-Fxc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,23 +251,38 @@
         <!--Canta (Four)-->
         <scene sceneID="uge-Gh-zHV">
             <objects>
-                <viewController title="Canta (Four)" id="CyW-Sr-8s9" sceneMemberID="viewController">
+                <viewController title="Canta (Four)" id="CyW-Sr-8s9" customClass="ViewControllerCanta" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JkC-vg-u16">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yay, you know how to follow directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzk-cT-dgZ">
-                                <rect key="frame" x="61" y="280" width="293" height="21"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5iS-6B-V9X">
+                                <rect key="frame" x="0.0" y="182" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select A State and Type In Its Capital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tc-5Y-Phc">
+                                <rect key="frame" x="66" y="130" width="282" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-VW-ThZ">
+                                <rect key="frame" x="176" y="732" width="62" height="30"/>
+                                <state key="normal" title="Continue"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5mo-G8-2UX" firstAttribute="bottom" secondItem="hsB-VW-ThZ" secondAttribute="bottom" constant="100" id="p70-R4-Edo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5mo-G8-2UX"/>
                     </view>
                     <navigationItem key="navigationItem" id="IpV-V7-Ua1"/>
+                    <connections>
+                        <outlet property="cantaContinueButton" destination="hsB-VW-ThZ" id="tVq-V2-NXM"/>
+                        <outlet property="cantaPicker" destination="5iS-6B-V9X" id="hmT-iI-Ho0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kC9-x9-Rgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,6 +295,22 @@
                     <view key="view" contentMode="scaleToFill" id="Fk5-t0-s86">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are capable of following instructions." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k5-Sw-C6Y">
+                                <rect key="frame" x="50" y="232" width="314" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good for you." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbK-SM-V0z">
+                                <rect key="frame" x="155" y="317" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Jmy-Xu-wUu"/>
                     </view>
