@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         erContinueButton.isEnabled = false
         erLabelEr.text = "A"
         erLabelAtta.text = "B"
+        erSwitchEr.isOn = false
+        erSwitchAtta.isOn = false
     }
 
     @IBAction func erSegSwitched(_ sender: UISegmentedControl) {

@@ -71,14 +71,25 @@ class ViewControllerCanta: UIViewController {
     
     @IBOutlet weak var cantaPicker: UIPickerView!
     @IBOutlet weak var cantaContinueButton: UIButton!
+    @IBOutlet weak var cantaTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cantaContinueButton.isEnabled = false
+        cantaPicker.dataSource = self
+        cantaPicker.delegate = self
     }
     
+    
+    @IBAction func cantaTextFieldWritten(_ sender: UITextField) {
+        enableContinueButton()
+    }
+    
+    
     func enableContinueButton() {
-        //do stuff
+        if cantaTextField.text?.lowercased() == states[cantaPicker.selectedRow(inComponent: 0)].capital.lowercased() {
+            cantaContinueButton.isEnabled = true
+        }
     }
 }
 
@@ -88,12 +99,12 @@ extension ViewControllerCanta: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        states.count
+        return states.count
     }
 }
 
 extension ViewControllerCanta: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        <#code#>
+        return states[row].name
     }
 }

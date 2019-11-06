@@ -267,13 +267,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-VW-ThZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-VW-ThZ">
                                 <rect key="frame" x="176" y="732" width="62" height="30"/>
                                 <state key="normal" title="Continue"/>
+                                <connections>
+                                    <segue destination="i0D-Jr-646" kind="show" id="4Ld-Wg-bhR"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lmj-8d-8F4">
+                                <rect key="frame" x="159" y="466" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cantaTextFieldWritten:" destination="CyW-Sr-8s9" eventType="editingChanged" id="EVp-jl-fEH"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hsB-VW-ThZ" firstAttribute="leading" secondItem="5mo-G8-2UX" secondAttribute="leading" constant="176" id="bTe-cq-f59"/>
+                            <constraint firstItem="5mo-G8-2UX" firstAttribute="trailing" secondItem="hsB-VW-ThZ" secondAttribute="trailing" constant="176" id="gA6-xF-fwo"/>
                             <constraint firstItem="5mo-G8-2UX" firstAttribute="bottom" secondItem="hsB-VW-ThZ" secondAttribute="bottom" constant="100" id="p70-R4-Edo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5mo-G8-2UX"/>
@@ -282,6 +296,7 @@
                     <connections>
                         <outlet property="cantaContinueButton" destination="hsB-VW-ThZ" id="tVq-V2-NXM"/>
                         <outlet property="cantaPicker" destination="5iS-6B-V9X" id="hmT-iI-Ho0"/>
+                        <outlet property="cantaTextField" destination="lmj-8d-8F4" id="yK8-Uv-sBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kC9-x9-Rgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -296,24 +311,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are capable of following instructions." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k5-Sw-C6Y">
-                                <rect key="frame" x="50" y="232" width="314" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good for you." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbK-SM-V0z">
-                                <rect key="frame" x="155" y="317" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-BO-wSA">
+                                <rect key="frame" x="20" y="160" width="374" height="192.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw2-rh-gdP">
+                                        <rect key="frame" x="110.5" y="0.0" width="153.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are capable of following instructions." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k5-Sw-C6Y">
+                                        <rect key="frame" x="6.5" y="81" width="361.5" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good for you." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbK-SM-V0z">
+                                        <rect key="frame" x="124" y="160.5" width="126" height="32"/>
+                                        <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jbl-BO-wSA" firstAttribute="top" secondItem="Jmy-Xu-wUu" secondAttribute="top" constant="72" id="GjO-SR-m0T"/>
+                            <constraint firstItem="jbl-BO-wSA" firstAttribute="leading" secondItem="Jmy-Xu-wUu" secondAttribute="leading" constant="20" id="XMC-mn-f2g"/>
+                            <constraint firstItem="Jmy-Xu-wUu" firstAttribute="trailing" secondItem="jbl-BO-wSA" secondAttribute="trailing" constant="20" id="d5e-0t-haU"/>
+                            <constraint firstItem="Jmy-Xu-wUu" firstAttribute="bottom" secondItem="jbl-BO-wSA" secondAttribute="bottom" constant="509.5" id="iKx-xd-bjz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Jmy-Xu-wUu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mvk-fC-PHu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgU-rh-L2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
